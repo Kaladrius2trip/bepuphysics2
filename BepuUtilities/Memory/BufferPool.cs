@@ -77,7 +77,7 @@ namespace BepuUtilities.Memory
                 //suballocation is smaller than the alignment- in which case it doesn't require the alignment to be that wide. Also, since the alignment and 
                 //suballocations are both pow2 sized, they won't drift out of sync.
                 //We pick 128 bytes to allow alignment with cache line pairs: https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-optimization-manual.pdf#page=162
-                Blocks[blockIndex] = (byte*)NativeMemory.AlignedAlloc((nuint)BlockSize, 128);
+                Blocks[blockIndex] = (byte*)NativeMemory.AlignedAlloc((nuint)BlockSize, (nuint)128);
                 BlockCount = blockIndex + 1;
             }
 
